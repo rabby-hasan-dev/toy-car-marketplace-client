@@ -7,13 +7,13 @@ const Navbar = () => {
         <li> <Link to='/' >Home</Link> </li>
         <li> <Link to='/allToys' >All Toys</Link> </li>
         <li> <Link to='/myToys' >My Toys</Link> </li>
-        <li> <Link to='/addToy' >Add A Toy</Link> </li>
+        <li> <Link to='/addToy' >Add Toy</Link> </li>
         <li> <Link to='/blog' >Blog</Link></li>
 
 
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar  bg-base-200 text-base-content">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,10 +37,11 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <label className="btn btn-ghost btn-circle avatar ">
+            <div className="navbar-end ">
+                <label className="btn btn-ghost btn-circle avatar tooltip " data-tip="email-name">
                     <div className="w-10 rounded-full ">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTls6DEOh9L3681bmt4tIaRwdSjvHw-E4FXFOhv8U8&s" />
+
                     </div>
                 </label>
             </div>
