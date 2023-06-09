@@ -62,7 +62,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <label className="btn btn-ghost btn-circle avatar tooltip " data-tip="email-name">
+                <label className="btn btn-ghost btn-circle avatar tooltip " data-tip={users?.email}>
                     <div className="w-10 rounded-full ">
                         <img src={users?.photoURL} />
 
