@@ -17,7 +17,7 @@ const ErrorPage = () => {
                     <i>{error.statusText || error.message}</i>
                 </p>
                 <img className='mx-auto' src={eroorLogo} alt="error" />
-               <Link to='/'> <button className='btn bg-red-600 text-white'>Go Back</button></Link>
+               <Link to='/'> <button className='btn hover:btn-info  bg-red-600 text-white'>Go Back</button></Link>
             </div>
         </div>
     );
