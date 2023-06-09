@@ -1,36 +1,38 @@
 import { useEffect, useState } from "react";
+import ToyCarCard from "./ToyCarCard";
 
 
 const ShopCategory = () => {
     const [toyDatas, setToyDatas] = useState([]);
-    const [activeTab, setActiveTab] = useState();
-    console.log(activeTab);
+    const [activeTab, setActiveTab] = useState('default');
+    console.log(toyDatas);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/ShopCategory`)
+        fetch(`http://localhost:3000/ShopCategory/${activeTab}`)
             .then(res => res.json())
             .then(data => {
                 setToyDatas(data)
             })
-    }, [])
+    }, [activeTab])
 
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
       };
 
     return (
-        <div>
-            <h2 className="text-4xl text-center">Shop Category</h2>
+        <div className="my-8">
+            <h2 className="text-4xl text-center mb-2">Shop Category</h2>
             <div className="tabs tabs-boxed  flex justify-center">
                 <button onClick={()=> handleTabClick('Sports Car')} className="tab hover:tab-active ">Sports car </button>
                 <button onClick={ ()=> handleTabClick('Police Car')} className="tab hover:tab-active">Police Car</button>
                 <button onClick={()=> handleTabClick('Truck')} className="tab hover:tab-active">Truck</button>
             </div>
-            <div>
+            <div className="grid lg:grid-cols-3 gap-4 mt-4">
                 {
-                    toyDatas.map(toyData => <p
+                    toyDatas.map(toyData => <ToyCarCard
                     key={toyData._id}
-                    >{toyData.name}</p>)
+                    toyData={toyData}
+                    ></ToyCarCard>  )
                 }
             </div>
         </div>
