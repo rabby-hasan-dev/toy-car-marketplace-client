@@ -2,17 +2,36 @@ import { Link } from "react-router-dom";
 import logo from '../../../../../public/logo.jpg'
 import LoginPopup from "../../Home/Login/LoginPopup/LoginPopup";
 import logBanner from '../../../../assets/login-banner.jpg'
+import { useContext } from "react";
+import { AuthContext } from "../../../../Providers/AuthProvider";
 
 
 const Navbar = () => {
+    const { users,logOut } = useContext(AuthContext);
+    console.log(users);
+
+
+    const handleLogOut=()=>{
+        logOut()
+        .then()
+        .catch(error=>{
+            console.log(error.message)
+        })
+    }
+
     const navItems = <>
         <li> <Link to='/' >Home</Link> </li>
-        <li> <Link to='/allToys' >All Toys</Link> </li>
-        <li> <Link to='/myToys' >My Toys</Link> </li>
-        <li> <Link to='/addToys' >Add Toy</Link> </li>
         <li> <Link to='/blog' >Blog</Link></li>
-        <li><Link to='/loginPopup' ></Link> </li>
-        <li><button onClick={() => window.my_modal_3.showModal()}>Login</button></li>
+        <li> <Link to='/allToys' >All Toys</Link> </li>
+
+        {
+            users?.email ? <>
+                <li> <Link to='/myToys' >My Toys</Link> </li>
+                <li> <Link to='/addToys' >Add Toy</Link> </li>
+                <li><button onClick={handleLogOut}>Log out</button></li>
+            </> : <li><button onClick={() => window.my_modal_3.showModal()}>Login</button></li>
+        }
+
 
 
 
@@ -45,7 +64,7 @@ const Navbar = () => {
             <div className="navbar-end ">
                 <label className="btn btn-ghost btn-circle avatar tooltip " data-tip="email-name">
                     <div className="w-10 rounded-full ">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTls6DEOh9L3681bmt4tIaRwdSjvHw-E4FXFOhv8U8&s" />
+                        <img src={users?.photoURL} />
 
                     </div>
                 </label>
@@ -54,13 +73,13 @@ const Navbar = () => {
             <dialog id="my_modal_3" className="modal">
                 <form method="dialog" className="modal-box">
                     <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                   
+
                     <div>
                         <img src={logBanner} alt="loginBanner" />
                         <h2 className="text-3xl font-medium">Please Choose Your Login Option!</h2>
-                    <LoginPopup></LoginPopup>
+                        <LoginPopup></LoginPopup>
                     </div>
-                 
+
                 </form>
             </dialog>
         </div>
