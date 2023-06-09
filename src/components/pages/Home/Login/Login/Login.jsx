@@ -45,7 +45,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button type="submit" className="btn btn-primary">Login</button>
+                            <button type="submit" className="btn btn-info">Login</button>
                         </div>
                     </form>
                 </div>
