@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 
 const ShopCategory = () => {
     const [toyDatas, setToyDatas] = useState([]);
+    const [activeTab, setActiveTab] = useState();
+    console.log(activeTab);
 
     useEffect(() => {
         fetch(`http://localhost:3000/ShopCategory`)
@@ -12,17 +14,23 @@ const ShopCategory = () => {
             })
     }, [])
 
+    const handleTabClick = (tabName) => {
+        setActiveTab(tabName);
+      };
+
     return (
         <div>
             <h2 className="text-4xl text-center">Shop Category</h2>
             <div className="tabs tabs-boxed  flex justify-center">
-                <button className="tab">Sports car </button>
-                <button className="tab tab-active">Police Car</button>
-                <button className="tab">Truck</button>
+                <button onClick={()=> handleTabClick('Sports Car')} className="tab hover:tab-active ">Sports car </button>
+                <button onClick={ ()=> handleTabClick('Police Car')} className="tab hover:tab-active">Police Car</button>
+                <button onClick={()=> handleTabClick('Truck')} className="tab hover:tab-active">Truck</button>
             </div>
             <div>
                 {
-                    toyDatas.map(toyData => <p>{toyData.name}</p>)
+                    toyDatas.map(toyData => <p
+                    key={toyData._id}
+                    >{toyData.name}</p>)
                 }
             </div>
         </div>
