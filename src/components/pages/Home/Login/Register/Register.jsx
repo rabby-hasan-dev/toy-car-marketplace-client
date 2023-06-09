@@ -4,8 +4,8 @@ import { AuthContext } from "../../../../../Providers/AuthProvider";
 
 
 const Register = () => {
-    const { signIn } = useContext(AuthContext);
-    console.log(signIn);
+    const { signIn, profilesUpdate } = useContext(AuthContext);
+
 
     const handleRegister = event => {
         event.preventDefault();
@@ -17,6 +17,10 @@ const Register = () => {
         console.log(name, photo, email, password);
         signIn(email, password)
             .then(result => {
+                profilesUpdate(name, photo)
+                    .then()
+                    .catch(error => console.log(error.message))
+
                 const user = result.user;
                 console.log(user);
             })
