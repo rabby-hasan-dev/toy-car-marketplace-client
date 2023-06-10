@@ -16,23 +16,41 @@ const MyToys = () => {
     }, [])
 
     const handleDelete = (id) => {
-        console.log(id)
-        fetch(`http://localhost:3000/allToy/${id}`, {
-            method: 'DELETE',
-        })
-            .then(res => res.json())
-            .then(data => {
-                if(data.deletedCount>0){
-                    Swal.fire(
-                        'Deleted!',
-                        'Your Chocolate has been deleted.',
-                        'success')
 
-                    console.log(data);
-                }
-                const remaining = toyCars.filter(toyCar => toyCar._id !== id);
-                setToycars(remaining);
-            } )
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:3000/allToy/${id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Toy has been deleted.',
+                                'success'
+                            )
+                            console.log(data);
+                        }
+                        const remaining = toyCars.filter(toyCar => toyCar._id !== id);
+                        setToycars(remaining);
+                    })
+
+            }
+        })
+
+
     }
 
     return (
@@ -63,7 +81,7 @@ const MyToys = () => {
                                 toyCars.map(toyCar => <MyToyTable
                                     key={toyCar._id}
                                     toyCar={toyCar}
-                                    handleDelete={ handleDelete}
+                                    handleDelete={handleDelete}
                                 ></MyToyTable>)
                             }
 

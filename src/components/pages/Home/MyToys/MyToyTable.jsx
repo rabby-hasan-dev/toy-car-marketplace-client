@@ -18,7 +18,8 @@ const MyToyTable = ({ toyCar, handleDelete }) => {
                 <Link to={`/singleMyToys/${_id}`}> <button className="btn btn-ghost btn-xs">View</button></Link>
             </th>
             <th>
-                <button className="btn btn-ghost btn-xs mr-2"><FaEdit className=""></FaEdit> Edit </button>
+              <Link to={`/updateToy/${_id}`}>  <button className="btn btn-ghost btn-xs mr-2"><FaEdit className=""></FaEdit> Edit </button></Link>
+
                 <button onClick={()=> handleDelete(_id)} className="btn btn-ghost btn-xs"><span className="text-red-400">X</span></button>
 
             </th>

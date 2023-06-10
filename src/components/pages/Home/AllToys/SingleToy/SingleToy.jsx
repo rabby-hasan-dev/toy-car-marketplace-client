@@ -1,8 +1,10 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 const SingleToy = () => {
     const toyDetails = useLoaderData();
     const { name, email, photo, sellerName, price, quantity, rating, description } = toyDetails;
+
+
 
     return (
         <div className="card card-compact w-full bg-base-100 shadow-xl">
@@ -18,6 +20,7 @@ const SingleToy = () => {
                 <div className="card-actions justify-end">
                     <Link to='/allToys'><button className="btn btn-primary">Back</button></Link>
                 </div>
+
             </div>
         </div>
     );

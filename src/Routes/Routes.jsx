@@ -13,6 +13,7 @@ import ErrorPage from "../components/pages/Shared/Error/ErrorPage";
 import SingleToyDetails from "../components/pages/Home/SingleToyDetails/SingleToyDetails";
 import SingleToy from "../components/pages/Home/AllToys/SingleToy/SingleToy";
 import SingleMyToy from "../components/pages/Home/MyToys/SingleMyToy";
+import UpdateToy from "../components/pages/Home/MyToys/UpdateToy/UpdateToy";
 
 
 const router = createBrowserRouter([
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'singleToyDetails/:id',
-        element: <SingleToy></SingleToy>,
+        element: <PrivateRoutes><SingleToy></SingleToy></PrivateRoutes>,
         loader: ({ params }) => fetch(`http://localhost:3000/allToy/${params.id}`)
       },
       {
@@ -70,6 +71,12 @@ const router = createBrowserRouter([
       {
         path: 'addToys',
         element: <AddToys></AddToys>
+      },
+      {
+        path: 'updateToy/:id',
+        element:<UpdateToy></UpdateToy>,
+        loader: ({ params }) => fetch(`http://localhost:3000/allToy/${params.id}`)
+        
       },
     ]
   },

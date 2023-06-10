@@ -21,8 +21,6 @@ const AddToys = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
 
-        // const dueAmount = form.dueAmount.value;
-        console.log(name, email, photo, sellerName, price, quantity, rating, subCategory);
         const addToy = {
             name,
             sellerName,
@@ -54,7 +52,7 @@ const AddToys = () => {
                         timer: 1500
                     })
                 }
-                console.log(data)
+               
 
 
 

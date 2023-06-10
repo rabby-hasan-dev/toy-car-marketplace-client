@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../../Providers/AuthProvider";
 
 
 const Login = () => {
     const { login } = useContext(AuthContext);
+    const [error,setError]=useState();
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -17,7 +18,7 @@ const Login = () => {
                 console.log(loggedUser);
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.message)
             })
     }
     return (
@@ -38,11 +39,14 @@ const Login = () => {
                             <input type="password" name="password" placeholder="password" className="input input-bordered" />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                
                             </label>
                             <label className="label">
                                 <p>if you new please <Link to='/register' className="link text-primary">Register</Link>  </p>
+                                
 
                             </label>
+                            <p className="text-red-600"> {error} </p>
                         </div>
                         <div className="form-control mt-6">
                             <button type="submit" className="btn btn-info">Login</button>
