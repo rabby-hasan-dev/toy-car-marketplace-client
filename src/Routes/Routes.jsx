@@ -45,19 +45,19 @@ const router = createBrowserRouter([
       {
         path: 'allToys',
         element: <AllToy></AllToy>,
-        loader: () => fetch('http://localhost:3000/allToy')
+        loader: () => fetch('https://toy-car-server-rabby65301-gmailcom.vercel.app/allToy')
       },
       {
         path: 'singleToyDetails/:id',
         element: <PrivateRoutes><SingleToy></SingleToy></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:3000/allToy/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-car-server-rabby65301-gmailcom.vercel.app/allToy/${params.id}`)
       },
       {
         path: 'singleToy/:id',
         element: <PrivateRoutes>
           <SingleToyDetails></SingleToyDetails>
         </PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:3000/singleToy/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-car-server-rabby65301-gmailcom.vercel.app/singleToy/${params.id}`)
       },
       {
         path: 'myToys',
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       {
         path: 'singleMyToys/:id',
         element: <SingleMyToy></SingleMyToy>,
-        loader: ({ params }) => fetch(`http://localhost:3000/allToy/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-car-server-rabby65301-gmailcom.vercel.app/allToy/${params.id}`)
       },
       {
         path: 'addToys',
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       {
         path: 'updateToy/:id',
         element:<UpdateToy></UpdateToy>,
-        loader: ({ params }) => fetch(`http://localhost:3000/allToy/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-car-server-rabby65301-gmailcom.vercel.app/allToy/${params.id}`)
         
       },
     ]
