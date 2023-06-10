@@ -11,6 +11,7 @@ import AllToy from "../components/pages/Home/AllToys/AllToy";
 import PrivateRoutes from "./PrivateRoutes";
 import ErrorPage from "../components/pages/Shared/Error/ErrorPage";
 import SingleToyDetails from "../components/pages/Home/SingleToyDetails/SingleToyDetails";
+import SingleToy from "../components/pages/Home/AllToys/SingleToy/SingleToy";
 
 
 const router = createBrowserRouter([
@@ -41,14 +42,20 @@ const router = createBrowserRouter([
       },
       {
         path: 'allToys',
-        element: <AllToy></AllToy>
+        element: <AllToy></AllToy>,
+        loader: () => fetch('http://localhost:3000/allToy')
+      },
+      {
+        path: 'singleToyDetails/:id',
+        element: <SingleToy></SingleToy>,
+        loader: ({ params }) => fetch(`http://localhost:3000/allToy/${params.id}`)
       },
       {
         path: 'singleToy/:id',
         element: <PrivateRoutes>
           <SingleToyDetails></SingleToyDetails>
         </PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:3000/singleToy/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:3000/singleToy/${params.id}`)
       },
       {
         path: 'myToys',
