@@ -12,7 +12,6 @@ const AllToy = () => {
                     {/* head */}
                     <thead>
                         <tr>
-
                             <th>
                                 Toy Name
                             </th>
