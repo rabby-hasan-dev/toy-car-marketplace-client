@@ -6,7 +6,7 @@ import Navbar from "../components/pages/Shared/Navbar/Navbar";
 
 const Main = () => {
     return (
-        <div className="mx-10">
+        <div >
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

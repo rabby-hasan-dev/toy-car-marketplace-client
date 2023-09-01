@@ -4,6 +4,7 @@ import AllToyTable from "./AllToyTable";
 
 const AllToy = () => {
     const allToys = useLoaderData();
+   
     return (
         <div className="my-4">
             <h2 className="text-4xl text-bold text-center">All toys</h2>
@@ -28,7 +29,7 @@ const AllToy = () => {
 
 
                         {
-                            allToys.map(allToy => <AllToyTable
+                            allToys?.map(allToy => <AllToyTable
                                 key={allToy._id}
                                 allToy={allToy}
                             ></AllToyTable>)

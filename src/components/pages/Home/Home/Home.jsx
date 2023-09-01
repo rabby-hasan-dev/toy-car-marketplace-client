@@ -9,14 +9,14 @@ import ShopCategory from "../ShopCategory/Shopcategory";
 
 const Home = () => {
     return (
-        <>
+        <div >
             <Banner></Banner>
             <GallerySection></GallerySection>
             <ShopCategory></ShopCategory>
             <ExtraSection></ExtraSection>
             <About></About>
 
-        </>
+        </div>
     );
 };
 
