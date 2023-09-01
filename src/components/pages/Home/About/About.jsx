@@ -3,7 +3,7 @@ import aboutLogo from '../../../../../src/assets/carosel/About.jpg'
 const About = () => {
     return (
 
-        <div className='grid lg:grid-cols-2 gap-4 p-10 bg-slate-200'>
+        <div className='grid lg:grid-cols-2 gap-4 p-10 bg-slate-100 my-8'>
 
             <div className='p-5' >
                 <h2 className='text-4xl text-center font-semi-bold'>About Us</h2>

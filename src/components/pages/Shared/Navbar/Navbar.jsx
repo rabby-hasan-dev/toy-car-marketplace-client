@@ -4,19 +4,20 @@ import LoginPopup from "../../Home/Login/LoginPopup/LoginPopup";
 import logBanner from '../../../../assets/login-banner.jpg'
 import { useContext } from "react";
 import { AuthContext } from "../../../../Providers/AuthProvider";
+import profilesIcon from '../../../../assets/profile-icon.png'
 
 
 const Navbar = () => {
-    const { users,logOut } = useContext(AuthContext);
+    const { users, logOut } = useContext(AuthContext);
     // console.log(users);
 
 
-    const handleLogOut=()=>{
+    const handleLogOut = () => {
         logOut()
-        .then()
-        .catch(error=>{
-            console.log(error.message)
-        })
+            .then()
+            .catch(error => {
+                console.log(error.message)
+            })
     }
 
     const navItems = <>
@@ -62,12 +63,14 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <label className="btn btn-ghost btn-circle avatar tooltip " data-tip={users?.email}>
-                    <div className="w-10 rounded-full ">
-                        <img src={users?.photoURL} />
+                {
+                    users?.email ? <label className="btn btn-ghost btn-circle avatar tooltip " data-tip={users?.email}>
+                        <div className="w-10 rounded-full ">
+                            <img src={users?.photoURL} />
 
-                    </div>
-                </label>
+                        </div>
+                    </label> : <></>
+                }
             </div>
             {/* login popup modal */}
             <dialog id="my_modal_3" className="modal">

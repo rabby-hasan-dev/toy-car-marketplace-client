@@ -2,7 +2,7 @@ import logo from '../../../../../public/logo.jpg'
 
 const Footer = () => {
     return (
-        <div>
+        <div className='mb-none'>
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div>
                     <span className="footer-title">Services</span>

@@ -2,7 +2,7 @@ import banner from '../../../../assets/carosel/galary (2).jpg'
 
 const ExtraSection = () => {
     return (
-        <div className='grid lg:grid-cols-2 gap-4 bg-slate-200 '>
+        <div className='grid lg:grid-cols-2 gap-4 bg-slate-100 '>
                 <div>
                     <img  className='rounded-lg' src={banner} alt="" />
                 </div>

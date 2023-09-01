@@ -4,6 +4,7 @@ import AllToyTable from "./AllToyTable";
 
 const AllToy = () => {
     const allToys = useLoaderData();
+    console.log(allToys);
    
     return (
         <div className="my-4">

@@ -27,7 +27,7 @@ const ShopCategory = () => {
                 <button onClick={() => handleTabClick('Police Car')} className="tab hover:tab-active">Police Car</button>
                 <button onClick={() => handleTabClick('Truck')} className="tab hover:tab-active">Truck</button>
             </div>
-            <div className="grid lg:grid-cols-3 gap-4 mt-4  mx-10">
+            <div className="grid lg:grid-cols-3 gap-4 mt-4  lg:mx-10">
                 {
                     toyDatas.map(toyData => <ToyCarCard
                         key={toyData._id}
